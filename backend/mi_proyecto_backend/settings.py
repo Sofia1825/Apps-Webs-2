@@ -38,15 +38,22 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Tus aplicaciones agregadas:
+<<<<<<< HEAD
+    'rest_framework',
+=======
     'corsheaders',
      'rest_framework',
+>>>>>>> 3d9623a59add6a9579e78991d604926bfa8bbf0f
     'profesores',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+<<<<<<< HEAD
+=======
      'corsheaders.middleware.CorsMiddleware',
+>>>>>>> 3d9623a59add6a9579e78991d604926bfa8bbf0f
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -125,5 +132,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+<<<<<<< HEAD
+=======
 CORS_ALLOW_ALL_ORIGINS = True
 
+>>>>>>> 3d9623a59add6a9579e78991d604926bfa8bbf0f
