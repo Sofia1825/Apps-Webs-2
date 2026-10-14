@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Cursos</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        th { background-color: #f4f4f4; }
+        form { display: flex; gap: 10px; margin-bottom: 20px; }
+        input, select, button { padding: 8px; }
+    </style>
+</head>
+<body>
+
+    <h2>Registrar Nuevo Curso</h2>
+    <form id="form-curso">
+        <input type="text" id="nombre" placeholder="Nombre del curso" required>
+        <input type="text" id="codigo" placeholder="Código (ej: CURSO101)" required>
+        <input type="number" id="profesor" placeholder="ID del Profesor" required>
+        <button type="submit">Guardar Curso</button>
+    </form>
+
+    <h2>Listado de Cursos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Código</th>
+                <th>ID Profesor</th>
+            </tr>
+        </thead>
+        <tbody id="tabla-cursos">
+            <!-- Se llena con JS -->
+        </tbody>
+    </table>
+
+    <script src="js/cursos.js"></script>
+</body>
+</html>
