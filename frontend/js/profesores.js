@@ -1,4 +1,4 @@
-const API_URL = 'http://127.0.0.1:8000/api/profesores/';
+const API_URL = 'http://127.0.0';
 
 // Ejecutar apenas cargue la página
 document.addEventListener('DOMContentLoaded', obtenerProfesores);
