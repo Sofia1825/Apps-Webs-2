@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cargarCursosEnSelect();
 });
 
+// Cargar opciones de cursos
 function cargarCursosEnSelect() {
     fetch(API_CURSOS)
         .then(response => response.json())
@@ -23,6 +24,7 @@ function cargarCursosEnSelect() {
         .catch(error => console.error('Error al cargar la lista de cursos:', error));
 }
 
+// GET: Obtener y listar estudiantes
 function obtenerEstudiantes() {
     fetch(API_ESTUDIANTES)
         .then(response => response.json())
@@ -35,7 +37,6 @@ function obtenerEstudiantes() {
                         <td>${estudiante.id}</td>
                         <td>${estudiante.nombre}</td>
                         <td>${estudiante.apellido}</td>
-                        <td>${estudiante.email}</td>
                         <td>${estudiante.grado}</td>
                         <td>${estudiante.curso}</td>
                     </tr>
@@ -45,14 +46,14 @@ function obtenerEstudiantes() {
         .catch(error => console.error('Error al cargar estudiantes:', error));
 }
 
+// POST: Registrar estudiante
 document.getElementById('form-estudiante').addEventListener('submit', function (e) {
     e.preventDefault();
 
     const nuevoEstudiante = {
         nombre: document.getElementById('nombre').value,
         apellido: document.getElementById('apellido').value,
-        email: document.getElementById('email').value,
-        grado: document.getElementById('grado').value, // <-- ¡ENVIAMOS EL GRADO!
+        grado: document.getElementById('grado').value,
         curso: parseInt(document.getElementById('curso').value)
     };
 
@@ -72,5 +73,5 @@ document.getElementById('form-estudiante').addEventListener('submit', function (
         document.getElementById('form-estudiante').reset();
         obtenerEstudiantes();
     })
-    .catch(error => alert('Error: ' + error.message));
+    .catch(error => alert('Error al guardar: ' + error.message));
 });

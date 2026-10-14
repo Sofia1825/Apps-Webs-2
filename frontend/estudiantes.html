@@ -10,16 +10,23 @@
         th { background-color: #f4f4f4; }
         form { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
         input, select, button { padding: 8px; }
+        nav a { margin-right: 15px; text-decoration: none; font-weight: bold; color: #007bff; }
     </style>
 </head>
 <body>
+
+    <nav>
+        <a href="profesores.html">Profesores</a>
+        <a href="cursos.html">Cursos</a>
+        <a href="estudiantes.html">Estudiantes</a>
+    </nav>
+    <hr style="margin-bottom: 20px;">
 
     <h2>Registrar Nuevo Estudiante</h2>
     <form id="form-estudiante">
         <input type="text" id="nombre" placeholder="Nombre" required>
         <input type="text" id="apellido" placeholder="Apellido" required>
-        <input type="email" id="email" placeholder="Correo Electrónico" required>
-        <input type="text" id="grado" placeholder="Grado (ej: 10°A)" required> <!-- <-- ¡NUEVO CAMPO! -->
+        <input type="text" id="grado" placeholder="Grado (ej: 10°A)" required>
         
         <select id="curso" required>
             <option value="">Cargando cursos...</option>
@@ -35,16 +42,14 @@
                 <th>ID</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
-                <th>Email</th>
-                <th>Grado</th> <!-- <-- ¡NUEVA COLUMNA! -->
+                <th>Grado</th>
                 <th>ID Curso</th>
             </tr>
         </thead>
         <tbody id="tabla-estudiantes">
-            <!-- Se llena con JS -->
+            <!-- Se llena dinámicamente con JS -->
         </tbody>
     </table>
-
 
     <script src="js/estudiantes.js"></script>
 </body>
