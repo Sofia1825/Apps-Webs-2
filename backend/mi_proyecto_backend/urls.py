@@ -15,8 +15,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+<<<<<<< HEAD
 from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
+=======
+from django.urls import path, include
+
+from rest_framework.routers import DefaultRouter
+from profesores.views import ProfesorViewSet
+
+# Configurar el enrutador automático de REST Framework
+router = DefaultRouter()
+router.register(r'profesores', ProfesorViewSet)
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/', include(router.urls)),  # Esto crea las rutas automáticas para /api/profesores/
+]
+>>>>>>> 3d9623a59add6a9579e78991d604926bfa8bbf0f
