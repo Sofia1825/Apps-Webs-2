@@ -2,54 +2,239 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Estudiantes</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 30px; }
-        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
-        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
-        th { background-color: #f4f4f4; }
-        form { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
-        input, select, button { padding: 8px; }
-        nav a { margin-right: 15px; text-decoration: none; font-weight: bold; color: #007bff; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar Unificada */
+        nav {
+            background-color: #1e293b;
+            padding: 1rem 2rem;
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: #ffffff;
+        }
+
+        nav a.brand {
+            color: #60a5fa;
+            font-size: 1.1rem;
+            margin-right: 1rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
+            width: 100%;
+            flex: 1;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2.5rem;
+        }
+
+        .card h2 {
+            font-size: 1.4rem;
+            color: #0f172a;
+            margin-bottom: 1.25rem;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            align-items: end;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #475569;
+        }
+
+        input, select {
+            padding: 0.75rem 1rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            background-color: #f8fafc;
+        }
+
+        input:focus, select:focus {
+            border-color: #2563eb;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+        button.btn-submit {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            height: 45px;
+        }
+
+        button.btn-submit:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* Tabla Estilizada */
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8fafc;
+            color: #475569;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 0.95rem;
+            color: #334155;
+        }
+
+        tbody tr:hover {
+            background-color: #f8fafc;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #0f172a;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
 
+    <!-- Navegación -->
     <nav>
-        <a href="profesores.html">Profesores</a>
-        <a href="cursos.html">Cursos</a>
-        <a href="estudiantes.html">Estudiantes</a>
+        <a href="index.html" class="brand">🏠 Inicio</a>
+        <a href="profesores.html">👨‍🏫 Profesores</a>
+        <a href="cursos.html">📚 Cursos</a>
+        <a href="estudiantes.html" class="active">🎓 Estudiantes</a>
     </nav>
-    <hr style="margin-bottom: 20px;">
 
-    <h2>Registrar Nuevo Estudiante</h2>
-    <form id="form-estudiante">
-        <input type="text" id="nombre" placeholder="Nombre" required>
-        <input type="text" id="apellido" placeholder="Apellido" required>
-        <input type="text" id="grado" placeholder="Grado (ej: 10°A)" required>
-        
-        <select id="curso" required>
-            <option value="">Cargando cursos...</option>
-        </select>
+    <main class="container">
+        <!-- Formulario -->
+        <div class="card">
+            <h2>🎓 Registrar Nuevo Estudiante</h2>
+            <form id="form-estudiante">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" placeholder="Nombre" required>
+                </div>
 
-        <button type="submit">Guardar Estudiante</button>
-    </form>
+                <div class="form-group">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" id="apellido" placeholder="Apellido" required>
+                </div>
 
-    <h2>Listado de Estudiantes</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Grado</th>
-                <th>ID Curso</th>
-            </tr>
-        </thead>
-        <tbody id="tabla-estudiantes">
-            <!-- Se llena dinámicamente con JS -->
-        </tbody>
-    </table>
+                <div class="form-group">
+                    <label for="grado">Grado Académico</label>
+                    <input type="text" id="grado" placeholder="Ej: 10°A" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="curso">Curso Asignado</label>
+                    <select id="curso" required>
+                        <option value="">Cargando cursos...</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-submit">Guardar Estudiante</button>
+            </form>
+        </div>
+
+        <!-- Tabla de Estudiantes -->
+        <div class="card">
+            <h2>📋 Listado de Estudiantes</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Grado</th>
+                            <th>ID Curso</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-estudiantes">
+                        <!-- Se llena dinámicamente con JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Sistema de Gestión Escolar - DesAppWebGA</p>
+    </footer>
 
     <script src="js/estudiantes.js"></script>
 </body>

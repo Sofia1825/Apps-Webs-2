@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión Escolar - Inicio</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #1e293b;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+            flex: 1;
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            color: #0f172a;
+            margin-bottom: 0.75rem;
+        }
+
+        .card p {
+            color: #64748b;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-link {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #2563eb;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-link:hover {
+            background-color: #1d4ed8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #0f172a;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Plataforma de Gestión Escolar</h1>
+        <p>Panel de administración principal</p>
+    </header>
+
+    <main class="container">
+        <div class="grid-cards">
+            
+            <!-- Módulo Profesores -->
+            <div class="card">
+                <div>
+                    <div class="card-icon">👨‍🏫</div>
+                    <h2>Profesores</h2>
+                    <p>Registra y administra el cuerpo docente, especialidades e información de contacto.</p>
+                </div>
+                <a href="profesores.html" class="btn-link">Gestionar Profesores</a>
+            </div>
+
+            <!-- Módulo Cursos -->
+            <div class="card">
+                <div>
+                    <div class="card-icon">📚</div>
+                    <h2>Cursos</h2>
+                    <p>Crea asignaturas, asigna códigos y vincula el profesor titular a cada clase.</p>
+                </div>
+                <a href="cursos.html" class="btn-link">Gestionar Cursos</a>
+            </div>
+
+            <!-- Módulo Estudiantes -->
+            <div class="card">
+                <div>
+                    <div class="card-icon">🎓</div>
+                    <h2>Estudiantes</h2>
+                    <p>Inscribe alumnos, asigna su grado académico y matricúlalos en sus respectivos cursos.</p>
+                </div>
+                <a href="estudiantes.html" class="btn-link">Gestionar Estudiantes</a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Sistema de Gestión Escolar - DesAppWebGA</p>
+    </footer>
+
+</body>
+</html>
