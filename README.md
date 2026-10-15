@@ -1,6 +1,6 @@
 # Apps-Webs-2
 
-# 🏫 Sistema de Gestión Escolar
+Sistema de Gestión Escolar
 
 El **Sistema de Gestión Escolar** es una aplicación web Full-Stack desarrollada para centralizar y optimizar la administración académica en instituciones educativas. La plataforma permite gestionar entidades clave del entorno escolar mediante un panel de control interactivo, unificado y fácil de usar.
 
